@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test de positionnement — Anglais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  background:#F5F0E8;
+  background-image:
+    linear-gradient(rgba(61,43,31,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,43,31,0.05) 1px, transparent 1px);
+  background-size: 38px 38px;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color:#3D2B1F;
+  padding: 40px 20px 80px;
+  min-height: 100vh;
+}
+.page-header { display:flex; justify-content:space-between; align-items:center; max-width:700px; margin:0 auto 30px; }
+.page-title { font-size:24px; font-weight:800; }
+.logo { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700; color:#3D2B1F; }
+.logo .l-box { width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#C4785A,#A85D3F);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff; }
+.logo .right { color:#C4785A; font-weight:600; }
+.card { max-width:700px; margin:0 auto 22px; border:1px solid rgba(61,43,31,0.12); background:#FFFFFF; box-shadow:0 2px 14px rgba(61,43,31,0.06); border-radius:18px; padding:30px 34px; }
+.intro-box { max-width:700px; margin:0 auto 26px; border:1px solid rgba(196,120,90,0.28); background:rgba(196,120,90,0.07); border-radius:14px; padding:20px 26px; color:rgba(61,43,31,0.75); font-size:14px; line-height:1.7; }
+.intro-box b { color:#3D2B1F; }
+label.field-label { display:block; font-size:13px; color:#C4785A; font-weight:700; margin-bottom:8px; }
+input.field-input { width:100%; background:#FBF6EE; border:1px solid rgba(61,43,31,0.2); border-radius:10px; padding:12px 14px; color:#3D2B1F; font-size:15px; margin-bottom:20px; outline:none; }
+input.field-input:focus { border-color:#C4785A; }
+.section-kicker { color:#B8873F; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+.q-text { font-size:17px; font-weight:800; margin-bottom:16px; line-height:1.4; }
+.q-text .hl { color:#C4785A; }
+.options { display:flex; flex-direction:column; gap:10px; }
+.opt { border:1px solid rgba(61,43,31,0.16); background:#FBF6EE; border-radius:10px; padding:12px 18px; cursor:pointer; font-size:14px; transition:background 0.15s, border-color 0.15s; }
+.opt:hover { background:rgba(196,120,90,0.1); }
+.opt.selected { border-color:#C4785A; background:rgba(196,120,90,0.16); color:#3D2B1F; font-weight:600; }
+.progress-bar-wrap { max-width:700px; margin:0 auto 24px; }
+.progress-label { display:flex; justify-content:space-between; font-size:12px; color:rgba(61,43,31,0.55); margin-bottom:8px; }
+.progress-bar-bg { height:6px; background:rgba(61,43,31,0.1); border-radius:4px; overflow:hidden; }
+.progress-bar { height:100%; background:linear-gradient(90deg,#C4785A,#E0AE8E); width:0%; transition:width 0.3s; }
+.btn-row { max-width:700px; margin:0 auto; display:flex; justify-content:flex-end; gap:12px; }
+.btn { border:2px solid #C4785A; background:rgba(196,120,90,0.08); color:#C4785A; font-size:14px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; padding:12px 26px; border-radius:10px; cursor:pointer; transition:background 0.15s; }
+.btn:hover { background:rgba(196,120,90,0.18); }
+.btn.primary { background:#C4785A; color:#FFFFFF; border-color:#C4785A; }
+.btn.primary:hover { background:#B36B4E; border-color:#B36B4E; }
+.btn:disabled { opacity:0.35; cursor:not-allowed; }
+.hidden { display:none !important; }
+.result-icon { width:70px; height:70px; border-radius:50%; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; font-size:28px; }
+.result-title { font-size:28px; font-weight:800; text-align:center; margin-bottom:12px; }
+.result-subtitle { color:#C4785A; font-size:14px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; text-align:center; margin-bottom:24px; }
+.result-desc { color:rgba(61,43,31,0.72); font-size:15px; line-height:1.7; text-align:center; max-width:520px; margin:0 auto 28px; }
+.score-display { display:flex; justify-content:center; gap:30px; margin-bottom:28px; }
+.score-box { text-align:center; }
+.score-num { font-size:42px; font-weight:800; color:#6FA378; }
+.score-label { font-size:12px; color:rgba(61,43,31,0.55); text-transform:uppercase; letter-spacing:1px; }
+.cta-btn { display:block; max-width:320px; margin:0 auto; background:#C4785A; color:#FFFFFF; font-size:15px; font-weight:800; text-align:center; padding:16px 24px; border-radius:12px; text-decoration:none; letter-spacing:0.5px; transition:background 0.15s; }
+.cta-btn:hover { background:#B36B4E; }
+.consent-row { display:flex; align-items:flex-start; gap:10px; margin-top:6px; font-size:12.5px; color:rgba(61,43,31,0.7); line-height:1.5; }
+.consent-row input { margin-top:3px; flex-shrink:0; }
+.divider { border-top:1px solid rgba(61,43,31,0.15); margin:20px 0; }
+</style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init("T13h-8mdMY_7gdppx");</script>
+</head>
+<body>
+  <div class="page-header">
+    <div class="page-title">Test de positionnement</div>
+    <div class="logo"><div class="l-box">L</div>LEARN<span class="right">RIGHT</span></div>
+  </div>
+
+  <!-- ÉTAPE 0 : INTRO + INFOS -->
+  <div id="step-intro">
+    <div class="intro-box">
+      Ce test rapide de <b>5 minutes</b> vous aide à connaître votre niveau d'anglais et à trouver le programme <b>Learn Right</b> fait pour vous. Il n'y a pas de bonnes ou mauvaises réponses — répondez instinctivement !
+    </div>
+    <div class="card">
+      <div class="section-kicker">VOS INFORMATIONS</div>
+      <label class="field-label">Prénom</label>
+      <input class="field-input" id="input-prenom" type="text" placeholder="Votre prénom">
+      <label class="field-label">Email</label>
+      <input class="field-input" id="input-email" type="email" placeholder="votre@email.com">
+      <div class="consent-row">
+        <input type="checkbox" id="input-consent">
+        <label for="input-consent">J'accepte que Learn Right conserve mes coordonnées pour me contacter au sujet de mon résultat et de ses offres de cours. Je peux me désinscrire à tout moment.</label>
+      </div>
+      <div class="btn-row" style="justify-content:flex-start; margin-top:20px;">
+        <button class="btn primary" onclick="startTest()">Commencer le test ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÉTAPE 1 : QUESTIONS -->
+  <div id="step-quiz" class="hidden">
+    <div class="progress-bar-wrap">
+      <div class="progress-label">
+        <span id="progress-text">Question 1 / 18</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar-bg"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+    <div class="card" id="question-card"></div>
+    <div class="btn-row">
+      <button class="btn" id="btn-prev" onclick="prevQuestion()">← Précédent</button>
+      <button class="btn primary" id="btn-next" onclick="nextQuestion()" disabled="">Suivant →</button>
+    </div>
+  </div>
+
+  <!-- ÉTAPE 2 : RÉSULTAT -->
+  <div id="step-result" class="hidden">
+    <div class="card" style="text-align:center; padding:40px 34px;">
+      <div class="result-icon" id="result-icon"></div>
+      <div class="result-subtitle" id="result-subtitle"></div>
+      <div class="result-title" id="result-title"></div>
+      <div class="score-display">
+        <div class="score-box">
+          <div class="score-num" id="score-num">0</div>
+          <div class="score-label">Score</div>
+        </div>
+        <div class="score-box">
+          <div class="score-num" style="color:#C4785A;" id="score-total">35</div>
+          <div class="score-label">Points possibles</div>
+        </div>
+      </div>
+      <div class="result-desc" id="result-desc"></div>
+      <a href="#" target="_blank" class="cta-btn" id="cta-btn">Découvrir le programme →</a>
+    </div>
+  </div>
+
+<script>
+// Chaque question porte un nombre de points croissant avec la difficulté
+// (1 pt = bases A1-A2, 2 pts = intermédiaire B1, 3 pts = avancé B2)
+const QUESTIONS = [
+  {kicker:"GRAMMAIRE — NIVEAU DÉBUTANT", q:"___ your name?", opts:["What is","What's","How is","What are"], correct:1, points:1},
+  {kicker:"GRAMMAIRE — NIVEAU DÉBUTANT", q:"She ___ a teacher. She works at a school.", opts:["Are","Is","Am","Be"], correct:1, points:1},
+  {kicker:"GRAMMAIRE — NIVEAU DÉBUTANT", q:"I ___ to the cinema every Friday with my friends.", opts:["Am going","Go","Went","Goes"], correct:1, points:1},
+  {kicker:"GRAMMAIRE — NIVEAU DÉBUTANT", q:"There ___ a lot of people in the park today.", opts:["Is","Are","Was","Be"], correct:1, points:1},
+  {kicker:"GRAMMAIRE — NIVEAU DÉBUTANT", q:"What did you ___ last weekend?", opts:["Done","Doing","Done","Do"], correct:3, points:1},
+  {kicker:"GRAMMAIRE — NIVEAU DÉBUTANT", q:"London is ___ than Paris. (big)", opts:["More big","Biggest","Bigger","Most big"], correct:2, points:1},
+  {kicker:"GRAMMAIRE — NIVEAU INTERMÉDIAIRE", q:"I ___ already ___ that film — it came out last year.", opts:["Did / see","Have / seen","Was / seeing","Had / seen"], correct:1, points:2},
+  {kicker:"GRAMMAIRE — NIVEAU INTERMÉDIAIRE", q:"She ___ for this company since she graduated in 2018.", opts:["Is working","Worked","Has been working","Was working"], correct:2, points:2},
+  {kicker:"GRAMMAIRE — NIVEAU INTERMÉDIAIRE", q:"\"The phone is ringing!\" → \"___ answer it!\"", opts:["I'll","I'm going to","I would","I shall"], correct:0, points:2},
+  {kicker:"GRAMMAIRE — NIVEAU INTERMÉDIAIRE", q:"You ___ wear a seatbelt in a car — it's the law!", opts:["Must","Should","Might","Could"], correct:0, points:2},
+  {kicker:"GRAMMAIRE — NIVEAU INTERMÉDIAIRE", q:"If it ___ tomorrow, we'll cancel the picnic.", opts:["Will rain","Rains","Rained","Would rain"], correct:1, points:2},
+  {kicker:"GRAMMAIRE — NIVEAU INTERMÉDIAIRE", q:"I wish I ___ more time to travel. Unfortunately I'm very busy.", opts:["Have","Had","Would have","Will have"], correct:1, points:2},
+  {kicker:"GRAMMAIRE — NIVEAU INTERMÉDIAIRE", q:"If I ___ you, I would have taken that job offer.", opts:["Am","Was","Were","Had been"], correct:2, points:2},
+  {kicker:"GRAMMAIRE — NIVEAU AVANCÉ", q:"The report ___ by the team before the deadline. (passive)", opts:["Has completed","Was completing","Had been completed","Was been completed"], correct:2, points:3},
+  {kicker:"GRAMMAIRE — NIVEAU AVANCÉ", q:"Despite ___ hard all year, she didn't get the promotion.", opts:["Working","She worked","Having work","To work"], correct:0, points:3},
+  {kicker:"GRAMMAIRE — NIVEAU AVANCÉ", q:"She ___ the presentation by the time the CEO arrives.", opts:["Will finish","Will have finished","Is finishing","Has finished"], correct:1, points:3},
+  {kicker:"GRAMMAIRE — NIVEAU AVANCÉ", q:"Not only ___ the exam, but she also got the highest score in the class.", opts:["She passed","Did she pass","She did pass","Passed"], correct:1, points:3},
+  {kicker:"GRAMMAIRE — NIVEAU AVANCÉ", q:"Which sentence is correct?", opts:["The news are very worrying today.","The news is very worrying today.","The news were very worrying today","The news have been very worrying today."], correct:1, points:3},
+];
+
+const MAX_SCORE = QUESTIONS.reduce((s,q)=>s+q.points, 0); // 35
+
+let current = 0;
+let answers = new Array(QUESTIONS.length).fill(null);
+let prenom = "", email = "";
+
+function startTest(){
+  prenom = document.getElementById('input-prenom').value.trim();
+  email = document.getElementById('input-email').value.trim();
+  const consent = document.getElementById('input-consent').checked;
+  if(!prenom || !email){ alert("Merci de renseigner votre prénom et votre email pour continuer."); return; }
+  if(!consent){ alert("Merci de cocher la case de consentement pour continuer."); return; }
+  document.getElementById('step-intro').classList.add('hidden');
+  document.getElementById('step-quiz').classList.remove('hidden');
+  document.getElementById('score-total').textContent = MAX_SCORE;
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const q = QUESTIONS[current];
+  document.getElementById('question-card').innerHTML = `
+    <div class="section-kicker">${q.kicker} — QUESTION ${current+1}/${QUESTIONS.length}</div>
+    <div class="q-text">${q.q}</div>
+    <div class="options">
+      ${q.opts.map((o,i)=>`<div class="opt ${answers[current]===i?'selected':''}" onclick="selectOption(${i})">${o}</div>`).join('')}
+    </div>
+  `;
+  const pct = Math.round((current/QUESTIONS.length)*100);
+  document.getElementById('progress-bar').style.width = pct + "%";
+  document.getElementById('progress-text').textContent = `Question ${current+1} / ${QUESTIONS.length}`;
+  document.getElementById('progress-pct').textContent = pct + "%";
+  document.getElementById('btn-prev').disabled = current === 0;
+  document.getElementById('btn-next').disabled = answers[current] === null;
+  document.getElementById('btn-next').textContent = current === QUESTIONS.length-1 ? "Voir mon résultat ✓" : "Suivant →";
+}
+
+function selectOption(i){
+  answers[current] = i;
+  renderQuestion();
+}
+
+function prevQuestion(){
+  if(current > 0){ current--; renderQuestion(); }
+}
+
+function nextQuestion(){
+  if(answers[current] === null) return;
+  if(current < QUESTIONS.length-1){
+    current++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult(){
+  document.getElementById('step-quiz').classList.add('hidden');
+  document.getElementById('step-result').classList.remove('hidden');
+
+  let score = 0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]===q.correct) score += q.points; });
+
+  document.getElementById('score-num').textContent = score;
+
+  let icon, subtitle, title, desc, color, ctaUrl;
+
+  if(score <= 12){
+    icon = "🚀"; color = "#6FA378";
+    subtitle = "VOTRE NIVEAU";
+    title = "Essentials (A1-A2)";
+    desc = "Bonne nouvelle — tout le monde commence quelque part ! Le programme Essentials de Learn Right est conçu exactement pour vous. En 12 séances, vous passerez de zéro à capable de communiquer en anglais dans la vie quotidienne. Et c'est satisfait ou remboursé !";
+    ctaUrl = "https://www.learnright.fr/products/cours-danglais-debutant?variant=57914793197832";
+  } else if(score <= 24){
+    icon = "🌟"; color = "#C4785A";
+    subtitle = "VOTRE NIVEAU";
+    title = "Intermédiaire (B1)";
+    desc = "Vous vous débrouillez bien — mais l'anglais professionnel vous résiste encore ? Le programme Professional va rendre votre anglais vraiment fluide et naturel. Et c'est satisfait ou remboursé !";
+    ctaUrl = "https://www.learnright.fr/products/cours-danglais-intermediaire?variant=57914793787656";
+  } else {
+    icon = "🏆"; color = "#B8873F";
+    subtitle = "VOTRE NIVEAU";
+    title = "Intermédiaire Supérieur (B2)";
+    desc = "Très bon niveau ! Vous manquez juste de nuances et de précision pour atteindre un anglais vraiment professionnel. Le programme Professional avancé est votre prochaine étape. Et c'est satisfait ou remboursé !";
+    ctaUrl = "https://www.learnright.fr/products/cours-danglais-intermediaire?variant=57914793787656";
+  }
+
+  const iconEl = document.getElementById('result-icon');
+  iconEl.textContent = icon;
+  iconEl.style.background = color + "15";
+  iconEl.style.border = "2px solid " + color;
+  document.getElementById('result-subtitle').textContent = subtitle;
+  document.getElementById('result-subtitle').style.color = color;
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-desc').textContent = desc;
+  document.getElementById('score-num').style.color = color;
+  const cta = document.getElementById('cta-btn');
+  cta.href = ctaUrl;
+  cta.textContent = title.startsWith("Essentials") ? "Découvrir le programme Essentials →" : "Découvrir le programme Professional →";
+
+  // Envoi via EmailJS (même compte que le test Darija)
+  emailjs.send("service_1js313k", "template_pbui5xp", {
+    name: prenom,
+    email: email,
+    message: "Score : " + score + "/" + MAX_SCORE + "\nNiveau : " + title,
+    time: new Date().toLocaleString('fr-FR')
+  }).catch(()=>{});
+
+  // Envoi automatique vers Systeme.io (via relais sécurisé Google Apps Script)
+  fetch("https://script.google.com/macros/s/AKfycbx2v1KTITE4nRkY64CXsUSDK1XBllMEd6oXsmaU546z7FYlqwYicxZ5COloQ1s4-3my/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify({
+      prenom: prenom,
+      email: email,
+      score: score,
+      profil: title,
+      source: "Anglais"
+    })
+  }).catch(()=>{});
+}
+</script>
+
+
+
+</body></html>
